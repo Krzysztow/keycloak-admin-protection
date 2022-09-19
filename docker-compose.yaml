@@ -5,7 +5,8 @@ services:
       - "8444:8444"
       - "9990:9990"
     volumes:
-      - .:/code
+      - ./admin-realm-https-port-change.cli:/opt/jboss/startup-scripts/admin-realm-https-port-change.cli
+      - ./block-keycloak-welcome.cli:/opt/jboss/startup-scripts/block-keycloak-welcome.cli
     image: jboss/keycloak:15.0.2
     environment:
       - KEYCLOAK_USER=test-user

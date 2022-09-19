@@ -1,0 +1,9 @@
+embed-server -c=standalone-ha.xml
+
+echo "Blocking access to the KeyCloak welcome page served on /auth/"
+
+/subsystem=undertow/configuration=filter/expression-filter=blockWelcome:add(,expression="path('/auth/') -> response-code(403)")
+/subsystem=undertow/server=default-server/host=default-host/filter-ref=blockWelcome:add()
+
+stop-embedded-server
+
