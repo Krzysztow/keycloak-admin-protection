@@ -1,0 +1,13 @@
+services:
+  web:
+    ports:
+      - "8443:8443"
+      - "8444:8444"
+      - "9990:9990"
+    volumes:
+      - .:/code
+    image: jboss/keycloak:15.0.2
+    environment:
+      - KEYCLOAK_USER=test-user
+      - KEYCLOAK_PASSWORD=password 
+
